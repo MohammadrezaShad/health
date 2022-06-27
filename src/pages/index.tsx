@@ -33,14 +33,13 @@ export default Home;
 
 export async function getServerSideProps({req, locale}: GetServerSidePropsContext) {
   const translations = await serverSideTranslations(locale as string, ['common']);
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery('brands', getBrands);
-  const dehydratedState = dehydrate(queryClient);
+  // await queryClient.prefetchQuery('brands', getBrands);
+  // const dehydratedState = dehydrate(queryClient);
 
   return {
     props: {
-      dehydratedState,
       ...translations,
     },
   };
